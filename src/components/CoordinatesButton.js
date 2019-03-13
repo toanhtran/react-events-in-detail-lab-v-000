@@ -1,25 +1,12 @@
 import React from 'react';
 
 class CoordinatesButton extends React.Component {
-  constructor(prop){
-    super();
-    this.state = {
-      input: '',
-      submit: ''
-    };
-    this.handleChange = this.handleChange.bind(this);
-    handleChange(event){
-      this.setState({
-        input:event.target.value
-      });
-    }
-      render(){
-        return(
-          <button onCick={this.state.} />
-        )
-      }
-    }
+  handleClick = event => {
+    this.props.onReceiveCoordinates([event.clientX, event.clientY]);
+  };
+
+  render() {
+    return <button onClick={this.handleClick}>Coords</button>;
   }
 }
-
 export default CoordinatesButton;
